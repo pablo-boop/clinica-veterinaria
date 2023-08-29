@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Clínica Veterinária</title>
+</head>
+<body>
+    <iframe src="layouts/header.html" frameborder="0"></iframe>
+    <main>
+        <div id="main-container">
+            <h2>Cadastrar seu Pet</h2>
+            <div id="input-fields">
+                <label for="tutor">
+                    <p>Tutor:</p>
+                    <input type="text" id="tutor"></input>
+                </label>
+                <label for="name">
+                    <p>Nome:</p>
+                    <input type="text" id="name"></input>
+                </label>
+                <label for="specie">
+                    <p>Espécie:</p>
+                    <input type="text" id="specie"></input>
+                </label>
+                <label for="picture">
+                    <p>Fotinha:</p>
+                    <input type="text" id="picture"></input>
+                </label>
+                <label for="date">
+                    <p>Data de nascimento:</p>
+                    <input type="date" id="date"></input>
+                </label>
+                <button onclick="createPet()">Cadastrar</button>
+            </div>
+        </div>
+        <div id="msg"></div>
+        <div id="list" class="hidden">
+
+        </div>
+    </main>
+    <iframe src="layouts/footer.html" frameborder="0"></iframe>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
