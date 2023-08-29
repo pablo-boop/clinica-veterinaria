@@ -14,14 +14,20 @@ class PetList {
     }
 
     add(param) {
+        const picture = document.getElementById("picture").value;
+
         if(emptyInputs()) {
             sendMSG(`Preencha todos os campos`, `error`)
-        } else {
+        } else if(!isURLValida(picture)) {
+            sendMSG(`Link inválido`, `error`)
+        } 
+        else {
             sendMSG(`Pet cadastrado registrado com sucesso`, `success`)
             clearInputs()
         }
         this.pets.push(param)
     }
+
 
     calculateAge(yy, mm, dd) {
         const d = new Date();
@@ -30,15 +36,15 @@ class PetList {
         let ageYear = (year - yy)
         
         let month = d.getMonth()
-        let ageMonth = (month - mm)
+        let ageMonth = (month - mm);
 
         let day = d.getDay();
         let ageDay = (day - dd)
 
-        return `${ageYear}, ${ageMonth}, ${ageDay}`
+        return `${Math.abs(ageYear)}, ${Math.abs(ageMonth)}, ${Math.abs(ageDay)}`
     }
-}
 
+}
 const petList = new PetList();
 
 function createPet() {
@@ -133,4 +139,9 @@ function sendMSG(msg,type){
     setTimeout(function(){
         msgDiv.innerHTML = "";
     }, 3000);
+}
+
+function register() {
+    document.getElementById("main-container").classList.remove("hidden");
+    document.getElementById("list").classList.add("hidden")
 }

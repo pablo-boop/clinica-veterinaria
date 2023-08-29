@@ -10,7 +10,7 @@
     <iframe src="layouts/header.html" frameborder="0" width="100%" height="100%"></iframe>
     <main>
         
-        <div id="main-container" class="hidden">
+        <div id="main-container">
             <h2>Cadastrar seu Pet</h2>
             <div id="input-fields">
                 <label for="tutor">
@@ -36,7 +36,10 @@
                 <button onclick="createPet()">Cadastrar</button>
             </div>
         </div>
-        <button onclick="showPet()">Exibir Pets</button>
+        <div id="render">
+            <button onclick="showPet()" id="show-button">Exibir Pets</button>
+            <button onclick="register()">Cadastrar Pets</button>
+        </div>
         <div id="msg"></div>
         <div id="list" class="hidden">
             <h2>Pets Cadastrados</h2>
