@@ -22,10 +22,24 @@ class PetList {
         }
         this.pets.push(param)
     }
+
+    calculateAge(yy, mm, dd) {
+        const d = new Date();
+
+        let year = d.getFullYear();
+        let ageYear = (year - yy)
+        
+        let month = d.getMonth()
+        let ageMonth = (month - mm)
+
+        let day = d.getDay();
+        let ageDay = (day - dd)
+
+        return `${ageYear}, ${ageMonth}, ${ageDay}`
+    }
 }
 
 const petList = new PetList();
-const pets = new Pet();
 
 function createPet() {
     const tutor = document.getElementById("tutor").value;
@@ -56,22 +70,31 @@ function emptyInputs() {
 
 
 function showPet() {
-    document.getElementById("main-container").classList.add("hidden");
-    document.getElementById("list").classList.remove("hidden")
-    let content = "";
+    
+    if(petList.pets.length == 0) {
+        sendMSG(`Não possuem pets cadastrados`, `error`)
+    } else if(petList.pets.length != 0) {
+        document.getElementById("main-container").classList.add("hidden")
+        document.getElementById("list").classList.remove("hidden")
+        const petsList = document.getElementById("list");
+        petsList.innerHTML = "";
+        
+        petList.pets.forEach((pet) => {
+            const cardPets = 
+            `
+            <div id="pets">
+                <img src="${pet.picture}"></img>
+                <p>Tutor: ${pet.tutor}</p>
+                <p>Nome: ${pet.name}</p>
+                <p>Espécie: ${pet.specie}</p>
+                <p>Data de aniversario: ${formatDate(pet.date)[0]} / ${formatDate(pet.date)[1]} / ${formatDate(pet.date)[2]}</p>
+                <p>Idade: ${petList.calculateAge(formatDate(pet.date)[2], formatDate(pet.date)[1], formatDate(pet.date)[0])}</p>
+            </div>
+            `
+            petsList.innerHTML += cardPets;
+        });
+    }
 
-    petList.forEach(pet => {
-        content += 
-        `
-        <div id="pets">
-            <p>${pet.tutor}</p>
-            <p>${pet.name}</p>
-            <p>${pet.specie}</p>
-            <img src="${pet.picture}"></img>
-            <p>${pet.date}</p>
-        </div>
-        `
-    });
 }
 
 function clearInputs() {

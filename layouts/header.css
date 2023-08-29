@@ -8,9 +8,26 @@ header {
     background-color: #1d7044;
     width: 100%;
     height: 100%;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+#buttons-fields {
+    margin: 0.5rem;
+}
+
+button {
+    border: none;
+    background-color: lightgreen;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 0.4rem;
+}
+
+.error {
+    color: #f00;
 }
