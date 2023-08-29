@@ -23,7 +23,7 @@ class PetList {
             const pet = new Pet(tutor, name, specie, picture, date)
             sendMSG(`Pet cadastrado registrado com sucesso`, `success`)
             this.pets.push(pet)
-            //clearInputs()
+            clearInputs()
         }
     }
 
