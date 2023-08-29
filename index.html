@@ -9,38 +9,41 @@
 <body>
     <iframe src="layouts/header.html" frameborder="0" width="100%" height="100%"></iframe>
     <main>
-        
-        <div id="main-container">
-            <h2>Cadastrar seu Pet</h2>
-            <div id="input-fields">
-                <label for="tutor">
-                    <p>Tutor:</p>
-                    <input type="text" id="tutor"></input>
-                </label>
-                <label for="name">
-                    <p>Nome:</p>
-                    <input type="text" id="name"></input>
-                </label>
-                <label for="specie">
-                    <p>Espécie:</p>
-                    <input type="text" id="specie"></input>
-                </label>
-                <label for="picture">
-                    <p>Fotinha:</p>
-                    <input type="text" id="picture"></input>
-                </label>
-                <label for="date">
-                    <p>Data de nascimento:</p>
-                    <input type="date" id="date"></input>
-                </label>
-                <button onclick="createPet()">Cadastrar</button>
+        <div id="global">
+            <div id="img">
+                <img src="assets/images/undraw_relaxing_walk_re_7fko.svg" alt="">
+            </div>
+            <div id="main-container">
+                <div id="input-fields">
+                    <label for="tutor">
+                        <p>Tutor:</p>
+                        <input type="text" id="tutor"></input>
+                    </label>
+                    <label for="name">
+                        <p>Nome:</p>
+                        <input type="text" id="name"></input>
+                    </label>
+                    <label for="specie">
+                        <p>Espécie:</p>
+                        <input type="text" id="specie"></input>
+                    </label>
+                    <label for="picture">
+                        <p>Fotinha:</p>
+                        <input type="text" id="picture"></input>
+                    </label>
+                    <label for="date">
+                        <p>Data de nascimento:</p>
+                        <input type="date" id="date"></input>
+                    </label>
+                    <button onclick="createPet()">Cadastrar</button>
+                    <div id="msg"></div>
+                    <div id="render">
+                        <button onclick="showPet()" id="show-button">Exibir Pets</button>
+                        <button onclick="register()">Cadastrar Pets</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="render">
-            <button onclick="showPet()" id="show-button">Exibir Pets</button>
-            <button onclick="register()">Cadastrar Pets</button>
-        </div>
-        <div id="msg"></div>
         <div id="list" class="hidden">
             <h2>Pets Cadastrados</h2>
         </div>

@@ -13,19 +13,18 @@ class PetList {
         this.pets = [];
     }
 
-    add(param) {
-        const picture = document.getElementById("picture").value;
-
+    add(tutor, name, specie, picture, date) {
         if(emptyInputs()) {
             sendMSG(`Preencha todos os campos`, `error`)
         } else if(!isURLValida(picture)) {
             sendMSG(`Link inválido`, `error`)
         } 
         else {
+            const pet = new Pet(tutor, name, specie, picture, date)
             sendMSG(`Pet cadastrado registrado com sucesso`, `success`)
-            clearInputs()
+            this.pets.push(pet)
+            //clearInputs()
         }
-        this.pets.push(param)
     }
 
 
@@ -54,8 +53,7 @@ function createPet() {
     const picture = document.getElementById("picture").value;
     const date = document.getElementById("date").value;
 
-    const pet = new Pet(tutor, name, specie, picture, date);
-    petList.add(pet)
+    petList.add(tutor, name, specie, picture, date)
 }
 
 function emptyInputs() {
@@ -88,7 +86,7 @@ function showPet() {
         petList.pets.forEach((pet) => {
             const cardPets = 
             `
-            <div id="pets">
+            <div class="pets">
                 <img src="${pet.picture}"></img>
                 <p>Tutor: ${pet.tutor}</p>
                 <p>Nome: ${pet.name}</p>
