@@ -82,8 +82,11 @@ function clearInputs() {
     date = document.getElementById("date").value="";
 }
 
-function formatDate() {
-    const date = document.getElementById("date").value="";
+function formatDate(date) {
+    let dateSplit = date.split("-");
+    let dateReverse = dateSplit.reverse();
+    return dateReverse
+
 }
 
 function isURLValida(url) {
